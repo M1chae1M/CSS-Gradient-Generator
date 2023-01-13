@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import Menu from './components/Menu';
 import PreviewScreen from './components/PreviewScreen';
 import AddedColors from './components/objects/AddedColors';
 import AddedColorDisplay from './components/AddedColorDisplay';
@@ -26,13 +27,13 @@ class App extends React.Component{
         const styles={
             App:{
                 display:'grid',
-                // border:'solid black 1px',
-                // width:'55vh',
                 width:'fit-content',
                 backgroundColor:'var(--background-color)',
                 height:'80%',
                 justifyItems:'center',
                 border:'solid 2px var(--borderColor)',
+                // border:'solid black 1px',
+                // width:'55vh',
             },
             colorListScrollabe:{
                 overflowY:'scroll',
@@ -44,19 +45,12 @@ class App extends React.Component{
             copyButton:{
                 display:'grid',
             },
-            otherMenuControl:{
-                display:'grid',
-                gridTemplateColumns:'auto 20% 10% 50%',
-                // border:'solid yellow 1px',
-                // gridGap:'-2px',
-            },
             inputs:{
                 display:'grid',
                 height:'100%',
                 width:'auto',
                 // border:'solid 2px var(--borderColor)',
                 // border:'solid black 1px',
-
             },
             inputRange:{
                 width:'100%',
@@ -64,14 +58,7 @@ class App extends React.Component{
                 borderRadius:'3px',
                 backgroundColor:'var(--background-color)',
                 border:'solid 2px var(--borderColor)',
-                // input{
-                //     border-radius:3px;
-                //     background-color:var(--background-color);
-                //     border:solid 2px rgb(82, 81, 81);
-                // }
-                // input[type="range"]{
-                //     appearance:none;
-                // }
+                height:'20px',
             },
         }
         const changeStylesToCopy=()=>{
@@ -156,7 +143,6 @@ class App extends React.Component{
                     inputColorValue={this.state.inputColorValue}
                 />
                 <input style={styles.inputRange} type="range" onChange={changeRangeInput} min="0" max="360" step="1" value={this.state.inputRangeValue}/>
-
                 <div style={styles.colorListScrollabe}>
                     {
                         this.state.colorsList.map((x,i)=>
@@ -171,18 +157,15 @@ class App extends React.Component{
                         )
                     }
                 </div>
-
                 <div style={styles.menu}>
                 <input type="button" value="Copy styles" onClick={copyStyles} style={styles.copyButton}/>
-
-                <div style={styles.otherMenuControl}>
-                    <input style={styles.inputs} type="color" onChange={changeColorInput} value={this.state.inputColorValue}/>
-                    <input style={styles.inputs} type="number" onChange={changeNumberInput} value={this.state.inputNumberValue}/>
-                    <input style={styles.inputs} type="button" value="%"/>
-                    <input style={styles.inputs} type="button" value="Dodaj nowy kolor" onClick={addNewColor}/>
-                </div>
-
-
+                <Menu
+                    changeColorInput={changeColorInput}
+                    changeNumberInput={changeNumberInput}
+                    addNewColor={addNewColor}
+                    inputColorValue={this.state.inputColorValue}
+                    inputNumberValue={this.state.inputNumberValue}
+                />
                 </div>
                 <input type="text" value={this.state.stylesReadyToCopy} id='stylesToCopy' className='hidden'/>
             </div>
