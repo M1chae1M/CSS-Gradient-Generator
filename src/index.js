@@ -31,14 +31,21 @@ class App extends React.Component{
                 backgroundColor:'var(--background-color)',
                 height:'80%',
                 justifyItems:'center',
-                border:'solid 2px var(--borderColor)',
+                // border:'solid 2px var(--borderColor)',
+
                 // border:'solid black 1px',
                 // width:'55vh',
                 // boxShadow:'var(--box-shadow-color) var(--box-shadow-x) var(--box-shadow-y)',
-
             },
             colorListScrollabe:{
                 overflowY:'scroll',
+
+                width:'100%',
+                boxShadow:'var(--borderColor) var(--box-shadow-x) var(--box-shadow-y)',
+                borderRadius:'5px',
+                // overflow:'hidden',
+                // border:'solid black 1px',
+                paddingLeft:'5px',
             },
             menu:{
                 display:'grid',
@@ -48,6 +55,7 @@ class App extends React.Component{
                 display:'grid',
                 boxShadow:'var(--box-shadow-color) var(--box-shadow-x) var(--box-shadow-y)',
                 borderRadius:'5px',
+                border:'var(--box-shadow-color) 3px solid',
                 // border:'yellow 1px solid'
             },
             inputs:{
@@ -64,8 +72,10 @@ class App extends React.Component{
                 appearance:'none',
                 borderRadius:'3px',
                 backgroundColor:'var(--background-color)',
-                border:'solid 2px var(--borderColor)',
+                // border:'solid 2px var(--borderColor)',
                 height:'20px',
+                border:'var(--box-shadow-color) 3px solid',
+                boxShadow:'var(--borderColor) var(--box-shadow-x) var(--box-shadow-y)',
             },
         }
         const changeStylesToCopy=()=>{
@@ -160,14 +170,14 @@ class App extends React.Component{
                     }
                 </div>
                 <div style={styles.menu}>
-                <input type="button" value="Copy styles" onClick={copyStyles} style={styles.copyButton}/>
-                <Menu
-                    changeColorInput={changeColorInput}
-                    changeNumberInput={changeNumberInput}
-                    addNewColor={addNewColor}
-                    inputColorValue={this.state.inputColorValue}
-                    inputNumberValue={this.state.inputNumberValue}
-                />
+                    <input type="button" value="Copy styles" onClick={copyStyles} style={styles.copyButton}/>
+                    <Menu
+                        changeColorInput={changeColorInput}
+                        changeNumberInput={changeNumberInput}
+                        addNewColor={addNewColor}
+                        inputColorValue={this.state.inputColorValue}
+                        inputNumberValue={this.state.inputNumberValue}
+                    />
                 </div>
                 <input type="text" value={this.state.stylesReadyToCopy} id='stylesToCopy' className='hidden'/>
             </div>
