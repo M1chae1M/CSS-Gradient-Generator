@@ -5,3 +5,9 @@
 4. nie można usunąć 1 koloru (nie wywołuje to zmiany stanu chyba)
 
 5. tooltip dodaj
+
+6. jak nie ma listy kolorów, to ma znikać scroll
+
+7. input range ma być przyklejony do górnej krawędzi
+8. przekopiuj wszystkie style
+9. ogarnij, by działało usuwanie pierwszej komórki
