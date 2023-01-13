@@ -119,22 +119,19 @@ class App extends React.Component{
         // [...tab.slice(0,3),...tab.slice(4)]
         const delColor=(e)=>{
             let delIndex=parseInt(e.target.parentElement.className);
+
             if(delIndex===0){
-                addedColors.splice(delIndex, 1);
-                // addedColors.unshift('3');
-                // addedColors.shift();
-                // e.target.parentElement.remove();
-                // addedColors.reverse().pop();
-                // addedColors.reverse();
+                    addedColors.shift();
             }else{
                 addedColors.splice(delIndex, 1);
             }
 
+            console.log(addedColors);
+            console.log(this)
             this.setState({colorsList:['addedColors']});
-
             setTimeout(()=>{
                 this.setState({colorsList:addedColors});
-            },0);
+            },10);
         }
         const copyStyles=(e)=>{
             changeStylesToCopy()
@@ -146,14 +143,17 @@ class App extends React.Component{
             },0);
         }
         return(
+            <React.Fragment>
             <div id='App' style={styles.App}>
+
+    
                 <PreviewScreen
                     colorsList={this.state.colorsList}
                     inputRangeValue={this.state.inputRangeValue}
                     inputColorValue={this.state.inputColorValue}
                 />
                 <input style={styles.inputRange} type="range" onChange={changeRangeInput} min="0" max="360" step="1" value={this.state.inputRangeValue}/>
-                <div style={styles.colorListScrollabe}>
+                <div style={styles.colorListScrollabe} id='colorListScrollabe'>
                     {
                         this.state.colorsList.map((x,i)=>
                             <AddedColorDisplay
@@ -179,6 +179,7 @@ class App extends React.Component{
                 </div>
                 <input type="text" value={this.state.stylesReadyToCopy} id='stylesToCopy' className='hidden'/>
             </div>
+            </React.Fragment>
         );
     }
 }

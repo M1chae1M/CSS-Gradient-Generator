@@ -44,6 +44,7 @@ class AddedColorDisplay extends React.Component{
                     style={styles.inputs}
                     type="button"
                     value="="
+                    draggable="true"
                 />
                 <input
                     style={styles.inputs}

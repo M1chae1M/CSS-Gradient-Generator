@@ -51,3 +51,7 @@ border-radius:50%;
 /* opacity:0.5; */
 /* box-shadow:var(--borderColor) 1px 2px; */
 }
+/* 
+input[type="button"]:drag{
+    border:solid red 3px !important;
+} */
