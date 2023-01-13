@@ -1,0 +1,5 @@
+1. dodaj opcję zmiany kolejności kolorów
+
+5. jak są 2 elementy, to usuwa tylko ostatni
+6. nie widzi zmiany stanu, bo to ta sama tablica xddd (rozwiązałem to zmianą na jakiś losowy stan i znowu na dobry po timeoutcie 0 ms)
+7. nie można usunąć 1 koloru (nie wywołuje to zmiany stanu chyba)

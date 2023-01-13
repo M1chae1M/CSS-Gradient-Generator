@@ -1,0 +1,7 @@
+*{box-sizing:border-box;padding:0px;margin:0px;}
+html,body,#root{width:100vw;height:100vh;position:relative;display:grid;justify-items:center;align-items:center;}
+:root{
+--bodyBackgroundColor:#e76f6f;
+--bodyBackgroundGradient:linear-gradient(18deg,#e76f6f 30%,#ffe5e5 80%);
+}
+.hidden{display:none;}
