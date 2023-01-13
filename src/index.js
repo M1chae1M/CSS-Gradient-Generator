@@ -22,6 +22,9 @@ class App extends React.Component{
         inputRangeValue:0,
         inputColorValue:'#ffffff',
         stylesReadyToCopy:'background-color:#ffffff;',
+
+        dragged:0,
+        dropped:0,
     }
     render(){
         const styles={
@@ -142,6 +145,15 @@ class App extends React.Component{
                 document.querySelector('#stylesToCopy').classList.add('hidden');
             },0);
         }
+
+
+
+        const changeStateDragged=(target)=>{
+            this.setState({dragged:target});
+        }
+        const changeStateDropped=(target)=>{
+            this.setState({dropped:target});
+        }
         return(
             <React.Fragment>
             <div id='App' style={styles.App}>
@@ -163,6 +175,11 @@ class App extends React.Component{
                                 addedColors={addedColors}
                                 delColor={delColor}
                                 changeColorsListState={changeColorsListState}
+
+                                changeStateDragged={changeStateDragged}
+                                changeStateDropped={changeStateDropped}
+                                dragged={this.state.dragged}
+                                dropped={this.state.dropped}
                             />
                         )
                     }

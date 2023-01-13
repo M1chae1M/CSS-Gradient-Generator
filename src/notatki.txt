@@ -7,3 +7,4 @@
 7. input range ma być przyklejony do górnej krawędzi
 9. ogarnij, by działało usuwanie pierwszej komórki
 
+10. zrób oddzielną klasę na funkcje zmieniające stan, by był pożądek
