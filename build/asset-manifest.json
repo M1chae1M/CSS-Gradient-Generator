@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/CSS-Gradient-Generator/build/static/css/main.1d15df5e.css",
-    "main.js": "/CSS-Gradient-Generator/build/static/js/main.ee758704.js",
+    "main.css": "/CSS-Gradient-Generator/build/static/css/main.79333ac3.css",
+    "main.js": "/CSS-Gradient-Generator/build/static/js/main.f785a6f3.js",
     "index.html": "/CSS-Gradient-Generator/build/index.html",
-    "main.1d15df5e.css.map": "/CSS-Gradient-Generator/build/static/css/main.1d15df5e.css.map",
-    "main.ee758704.js.map": "/CSS-Gradient-Generator/build/static/js/main.ee758704.js.map"
+    "main.79333ac3.css.map": "/CSS-Gradient-Generator/build/static/css/main.79333ac3.css.map",
+    "main.f785a6f3.js.map": "/CSS-Gradient-Generator/build/static/js/main.f785a6f3.js.map"
   },
   "entrypoints": [
-    "static/css/main.1d15df5e.css",
-    "static/js/main.ee758704.js"
+    "static/css/main.79333ac3.css",
+    "static/js/main.f785a6f3.js"
   ]
 }

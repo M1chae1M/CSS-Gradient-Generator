@@ -19,16 +19,17 @@ class PreviewScreen extends React.Component{
         const styles={
             PreviewScreen:{
                 backgroundColor:backgroundColorF,
+                background:backgroundGradient,
                 display:'grid',
                 width:'55vh',
                 height:'55vh',
-                border:'solid black 1px',
-                background:backgroundGradient,
                 boxShadow:'var(--borderColor) var(--box-shadow-x) var(--box-shadow-y)',
                 borderRadius:'5px',
+                border:'var(--box-shadow-color) 3px solid',
                 // backgroundColor:this.props.backgroundColorF,
                 // background:this.props.backgroundGradient,
                 // boxShadow:'grey 3px 3px',
+                // border:'solid black 1px',
             },
         }
         return(

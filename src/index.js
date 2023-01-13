@@ -27,25 +27,24 @@ class App extends React.Component{
         const styles={
             App:{
                 display:'grid',
-                width:'fit-content',
+                width:'55vh',
                 backgroundColor:'var(--background-color)',
-                height:'80%',
+                height:'80vh',
                 justifyItems:'center',
                 // border:'solid 2px var(--borderColor)',
-
                 // border:'solid black 1px',
                 // width:'55vh',
                 // boxShadow:'var(--box-shadow-color) var(--box-shadow-x) var(--box-shadow-y)',
+                // width:'fit-content',
             },
             colorListScrollabe:{
                 overflowY:'scroll',
-
                 width:'100%',
                 boxShadow:'var(--borderColor) var(--box-shadow-x) var(--box-shadow-y)',
                 borderRadius:'5px',
+                paddingLeft:'5px',
                 // overflow:'hidden',
                 // border:'solid black 1px',
-                paddingLeft:'5px',
             },
             menu:{
                 display:'grid',
@@ -65,17 +64,16 @@ class App extends React.Component{
                 // border:'solid 2px var(--borderColor)',
                 // border:'solid black 1px',
                 // borderRadius:'15px',
-
             },
             inputRange:{
                 width:'100%',
                 appearance:'none',
-                borderRadius:'3px',
+                borderRadius:'5px',
                 backgroundColor:'var(--background-color)',
-                // border:'solid 2px var(--borderColor)',
                 height:'20px',
                 border:'var(--box-shadow-color) 3px solid',
                 boxShadow:'var(--borderColor) var(--box-shadow-x) var(--box-shadow-y)',
+                // border:'solid 2px var(--borderColor)',
             },
         }
         const changeStylesToCopy=()=>{

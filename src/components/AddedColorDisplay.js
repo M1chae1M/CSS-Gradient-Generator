@@ -8,7 +8,22 @@ class AddedColorDisplay extends React.Component{
     render(){
         const styles={
             AddedColorDisplay:{
-
+                borderBottom:'solid var(--borderColor) 1px',
+                maxHeight:'100px',
+                minHeight:'30px',
+                height:'35px',
+                display:'grid',
+                gridTemplateColumns:'10% 20% 40% 10%',
+                alignItems:'center',
+                justifyContent:'center',
+                // justifyItems:'center',
+                // padding:'3px',
+                // verticalAlign:'middle',
+                // boxShadow:'var(--borderColor) 2px 2px',
+            },
+            inputs:{
+                height:'25px',
+                width:'auto',
             },
         }
         const changeColorInput=(e)=>{
@@ -26,19 +41,23 @@ class AddedColorDisplay extends React.Component{
         return(
             <div id='AddedColorDisplay' style={styles.AddedColorDisplay} className={this.props.ID}>
                 <input
+                    style={styles.inputs}
                     type="button"
                     value="="
                 />
                 <input
+                    style={styles.inputs}
                     type="color"
                     value={this.state.inputColorValue}
                     onChange={changeColorInput}/>
                 <input
+                    style={styles.inputs}
                     type="number"
                     value={this.state.inputNumberValue}
                     onChange={changeNumberInput}
                 />
                 <input
+                    style={styles.inputs}
                     type="button"
                     value="del"
                     onClick={this.props.delColor}
