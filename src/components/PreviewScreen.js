@@ -23,9 +23,10 @@ class PreviewScreen extends React.Component{
                 display:'grid',
                 width:'55vh',
                 height:'55vh',
+                border:'solid black 1px',
                 // background:this.props.backgroundGradient,
                 background:backgroundGradient,
-                boxShadow:'grey 3px 3px',
+                // boxShadow:'grey 3px 3px',
             },
         }
         return(

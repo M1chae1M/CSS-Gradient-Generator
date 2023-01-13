@@ -1,26 +1,99 @@
 *{box-sizing:border-box;padding:0px;margin:0px;}
 html,body,#root{width:100vw;height:100vh;position:relative;}
-.AddNewColorOrEdit>input,input,#root,#App,#DisplayGradient,.AddNewColorOrEdit{display:grid;}
-.AddNewColorOrEdit>input,input[type="color"]{width:100%;height:100%;}
+
+.AddNewColorOrEdit>input,input,#root,#App,#DisplayGradient,.AddNewColorOrEdit{
+    display:grid;
+}
+
+.AddNewColorOrEdit>input,input[type="color"]{
+    width:100%;
+    height:100%;
+}
+
+
 #root,#App,.AddNewColorOrEdit{justify-content:center;}
-:root{--background-color:rgb(167, 167, 167);--box-shadow-color:rgb(77, 77, 77);--box-shadow-y:7px;--box-shadow-x:3px;}
-.AddNewColorOrEdit input:hover,input{box-shadow:var(--box-shadow-x) var(--box-shadow-y) var(--box-shadow-color);}
-::-webkit-scrollbar{box-shadow:var(--box-shadow-x) var(--box-shadow-y) var(--box-shadow-color);}
-#root{align-items:center;background-color:gray;}
-#App{width:35vw;height:35vw;}
-#DisplayGradient{border:solid black 1px;width:30vw;height:30vw;}
-#ToolTip{position:absolute;color:white;z-index:999;font-weight:bold;font-size:20px;-webkit-text-stroke:1.5px black;}
-.static{width:100%;grid-template-columns:0% 30% 25% 5% 40%;margin-right:10px;}
-.AddNewColorOrEdit{height:23px;grid-template-columns:5% 25% 25% 5% 40%;}
-.noColors{grid-template-columns:0% 26.25% 26.25% 6.25% 41.25%;}
-.hidden{display:none;}
-input{border-radius:3px;background-color:var(--background-color);border:solid 2px rgb(82, 81, 81);}
-input[type="range"]{appearance:none;}
-.AddNewColorOrEdit input:hover{border:solid black 1.5px;}
-input:hover, ::-webkit-scrollbar-thumb:hover{opacity:0.7;box-shadow:none;}
-::-webkit-scrollbar-thumb:hover{opacity:0.7;box-shadow:none;border:solid black 1px;}
-#ColorsList{position:relative;max-height:10vh;min-height:0%;overflow-y:scroll;}
-::-webkit-scrollbar{width:10px;z-index:-100;}
-::-webkit-scrollbar-track{background:white;}
-::-webkit-scrollbar-thumb{background:var(--background-color);}
-#AddNewColorOrEdit input{z-index:500;}
+:root{
+    --background-color:rgb(167, 167, 167);
+    --box-shadow-color:rgb(77, 77, 77);
+    --box-shadow-y:7px;
+    --box-shadow-x:3px;
+}
+.AddNewColorOrEdit input:hover,input{box-shadow:var(--box-shadow-x) var(--box-shadow-y) var(--box-shadow-color);
+}
+::-webkit-scrollbar{box-shadow:var(--box-shadow-x) var(--box-shadow-y) var(--box-shadow-color);
+}
+#root{
+    align-items:center;
+    background-color:gray;
+}
+#App{
+    width:35vw;
+    height:35vw;
+}
+#DisplayGradient{
+    /* border:solid black 1px; */
+    width:30vw;
+    height:30vw;
+}
+#ToolTip{
+    position:absolute;
+    color:white;
+    z-index:999;
+    font-weight:bold;
+    font-size:20px;
+    -webkit-text-stroke:1.5px black;
+}
+.static{
+    width:100%;
+    grid-template-columns:0% 30% 25% 5% 40%;
+    margin-right:10px;
+}
+.AddNewColorOrEdit{
+    height:23px;
+    grid-template-columns:5% 25% 25% 5% 40%;
+}
+.noColors{
+    grid-template-columns:0% 26.25% 26.25% 6.25% 41.25%;
+}
+.hidden{
+    display:none;
+}
+/* input{
+    border-radius:3px;
+    background-color:var(--background-color);
+    border:solid 2px rgb(82, 81, 81);
+}
+input[type="range"]{
+    appearance:none;
+} */
+.AddNewColorOrEdit input:hover{
+    border:solid black 1.5px;
+}
+input:hover, ::-webkit-scrollbar-thumb:hover{
+    opacity:0.7;
+    box-shadow:none;
+}
+::-webkit-scrollbar-thumb:hover{
+    opacity:0.7;
+    box-shadow:none;
+    border:solid black 1px;
+}
+#ColorsList{
+    position:relative;
+    max-height:10vh;
+    min-height:0%;
+    overflow-y:scroll;
+}
+::-webkit-scrollbar{
+    width:10px;
+    z-index:-100;
+}
+::-webkit-scrollbar-track{
+    background:white;
+}
+::-webkit-scrollbar-thumb{
+    background:var(--background-color);
+}
+#AddNewColorOrEdit input{
+    z-index:500;
+}

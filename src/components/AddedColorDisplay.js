@@ -5,11 +5,6 @@ class AddedColorDisplay extends React.Component{
         inputNumberValue:this.props.startOnPercents,
         inputColorValue:this.props.color,
     }
-    // componentDidUpdate(){
-    //     this.setState({inputColorValue:this.props.startOnPercents,
-    //         inputNumberValue:this.props.color
-    //     })
-    // }
     render(){
         const styles={
             AddedColorDisplay:{
@@ -31,6 +26,10 @@ class AddedColorDisplay extends React.Component{
         return(
             <div id='AddedColorDisplay' style={styles.AddedColorDisplay} className={this.props.ID}>
                 <input
+                    type="button"
+                    value="="
+                />
+                <input
                     type="color"
                     value={this.state.inputColorValue}
                     onChange={changeColorInput}/>
@@ -38,7 +37,6 @@ class AddedColorDisplay extends React.Component{
                     type="number"
                     value={this.state.inputNumberValue}
                     onChange={changeNumberInput}
-                    // onClick={()=>{this.forceUpdate()}}
                 />
                 <input
                     type="button"

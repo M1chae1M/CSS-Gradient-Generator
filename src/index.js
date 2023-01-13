@@ -26,16 +26,57 @@ class App extends React.Component{
         const styles={
             App:{
                 display:'grid',
-                border:'solid black 1px',
-                width:'55vh',
+                // border:'solid black 1px',
+                // width:'55vh',
+                width:'fit-content',
+                backgroundColor:'var(--background-color)',
                 height:'80%',
                 justifyItems:'center',
+                border:'solid 2px var(--borderColor)',
+            },
+            colorListScrollabe:{
+                overflowY:'scroll',
+            },
+            menu:{
+                display:'grid',
+                width:'100%',
+            },
+            copyButton:{
+                display:'grid',
+            },
+            otherMenuControl:{
+                display:'grid',
+                gridTemplateColumns:'auto 20% 10% 50%',
+                // border:'solid yellow 1px',
+                // gridGap:'-2px',
+            },
+            inputs:{
+                display:'grid',
+                height:'100%',
+                width:'auto',
+                // border:'solid 2px var(--borderColor)',
+                // border:'solid black 1px',
+
+            },
+            inputRange:{
+                width:'100%',
+                appearance:'none',
+                borderRadius:'3px',
+                backgroundColor:'var(--background-color)',
+                border:'solid 2px var(--borderColor)',
+                // input{
+                //     border-radius:3px;
+                //     background-color:var(--background-color);
+                //     border:solid 2px rgb(82, 81, 81);
+                // }
+                // input[type="range"]{
+                //     appearance:none;
+                // }
             },
         }
         const changeStylesToCopy=()=>{
             let backgroundColorF=Array.from(addedColors).length>0?addedColors[0].color:this.state.inputColorValue;
             let backgroundGradient='';
-
             if(Array.from(this.state.colorsList).length>1){
                 backgroundGradient='linear-gradient('+this.state.inputRangeValue+'deg';
                 this.state.colorsList.map((x,i)=>backgroundGradient+=','+x.color+' '+x.startOnPercents+'%');
@@ -45,7 +86,6 @@ class App extends React.Component{
                 backgroundGradient='';
                 // backgroundGradient=this.state.inputColorValue;
             }
-
             this.setState({stylesReadyToCopy:'background-color:'+backgroundColorF+';'+backgroundGradient});
         }
         const changeColorsListState=(temp)=>{
@@ -115,13 +155,9 @@ class App extends React.Component{
                     inputRangeValue={this.state.inputRangeValue}
                     inputColorValue={this.state.inputColorValue}
                 />
-                {/* <DisplayColorListArea
-                    addedColors={addedColors}
-                    delColor={delColor}
-                    colorsList={this.state.colorsList}
-                    changeColorsListState={changeColorsListState}
-                /> */}
-                <div>
+                <input style={styles.inputRange} type="range" onChange={changeRangeInput} min="0" max="360" step="1" value={this.state.inputRangeValue}/>
+
+                <div style={styles.colorListScrollabe}>
                     {
                         this.state.colorsList.map((x,i)=>
                             <AddedColorDisplay
@@ -135,18 +171,20 @@ class App extends React.Component{
                         )
                     }
                 </div>
-                <div>
-                    <input type="range" onChange={changeRangeInput} min="0" max="360" step="1" value={this.state.inputRangeValue}/>
-                    <input type="button" value="Copy styles" onClick={copyStyles}/>
-                    <input type="color" onChange={changeColorInput} value={this.state.inputColorValue}/>
-                    <input type="number" onChange={changeNumberInput} value={this.state.inputNumberValue}/>
-                    <input type="button" value="%"/>
-                    <input type="button" value="Dodaj nowy kolor" onClick={addNewColor}/>
+
+                <div style={styles.menu}>
+                <input type="button" value="Copy styles" onClick={copyStyles} style={styles.copyButton}/>
+
+                <div style={styles.otherMenuControl}>
+                    <input style={styles.inputs} type="color" onChange={changeColorInput} value={this.state.inputColorValue}/>
+                    <input style={styles.inputs} type="number" onChange={changeNumberInput} value={this.state.inputNumberValue}/>
+                    <input style={styles.inputs} type="button" value="%"/>
+                    <input style={styles.inputs} type="button" value="Dodaj nowy kolor" onClick={addNewColor}/>
                 </div>
-                <input type="text" value={this.state.stylesReadyToCopy} id='stylesToCopy'
-                // onClick={changeStylesToCopy}
-                className='hidden'
-                />
+
+
+                </div>
+                <input type="text" value={this.state.stylesReadyToCopy} id='stylesToCopy' className='hidden'/>
             </div>
         );
     }
