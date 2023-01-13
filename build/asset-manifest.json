@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/CSS-Gradient-Generator/build/static/css/main.1d15df5e.css",
+    "main.js": "/CSS-Gradient-Generator/build/static/js/main.ee758704.js",
+    "index.html": "/CSS-Gradient-Generator/build/index.html",
+    "main.1d15df5e.css.map": "/CSS-Gradient-Generator/build/static/css/main.1d15df5e.css.map",
+    "main.ee758704.js.map": "/CSS-Gradient-Generator/build/static/js/main.ee758704.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1d15df5e.css",
+    "static/js/main.ee758704.js"
+  ]
+}

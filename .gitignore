@@ -8,8 +8,8 @@
 # testing
 /coverage
 
-# production
-/build
+/kopia 13.1.2023 135 (wyglada dobrze, ale napisana chujowo)
+/mój własny wzór.png
 
 # misc
 .DS_Store

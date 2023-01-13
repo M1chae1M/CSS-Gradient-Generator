@@ -13,4 +13,26 @@ html,body,#root{width:100vw;height:100vh;position:relative;display:grid;justify-
 --box-shadow-y:7px;
 --box-shadow-x:3px;
 }
+::-webkit-scrollbar{
+/* box-shadow:1px 1px black; */
+width:10px;
+z-index:-100;
+}
+::-webkit-scrollbar-track{
+background:white;
+box-shadow:black 2px 2px;
+/* border:solid black 1px; */
+}
+::-webkit-scrollbar-thumb{
+background:var(--background-color);
+}
+input:hover, ::-webkit-scrollbar-thumb:hover{
+opacity:0.7;
+box-shadow:none;
+}
+::-webkit-scrollbar-thumb:hover{
+opacity:0.7;
+box-shadow:none;
+border:solid black 1px;
+}
 .hidden{display:none;}

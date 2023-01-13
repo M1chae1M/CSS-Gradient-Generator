@@ -5,9 +5,15 @@ class Menu extends React.Component{
         const styles={
             Menu:{
                 display:'grid',
-                gridTemplateColumns:'auto 20% 10% 50%',
+                gridTemplateColumns:'20% 20% 10% 50%',
+                // gridTemplateColumns:'1fr 1fr 0.5fr 2.5fr',
                 // border:'solid yellow 1px',
                 // gridGap:'-2px',
+            },
+            inputs:{
+                boxShadow:'var(--box-shadow-color) var(--box-shadow-x) var(--box-shadow-y)',
+                borderRadius:'5px',
+                width:'auto',
             },
         }
         return(

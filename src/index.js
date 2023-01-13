@@ -34,6 +34,8 @@ class App extends React.Component{
                 border:'solid 2px var(--borderColor)',
                 // border:'solid black 1px',
                 // width:'55vh',
+                // boxShadow:'var(--box-shadow-color) var(--box-shadow-x) var(--box-shadow-y)',
+
             },
             colorListScrollabe:{
                 overflowY:'scroll',
@@ -44,6 +46,9 @@ class App extends React.Component{
             },
             copyButton:{
                 display:'grid',
+                boxShadow:'var(--box-shadow-color) var(--box-shadow-x) var(--box-shadow-y)',
+                borderRadius:'5px',
+                // border:'yellow 1px solid'
             },
             inputs:{
                 display:'grid',
@@ -51,6 +56,8 @@ class App extends React.Component{
                 width:'auto',
                 // border:'solid 2px var(--borderColor)',
                 // border:'solid black 1px',
+                // borderRadius:'15px',
+
             },
             inputRange:{
                 width:'100%',
@@ -103,10 +110,7 @@ class App extends React.Component{
         }
         // [...tab.slice(0,3),...tab.slice(4)]
         const delColor=(e)=>{
-
             let delIndex=parseInt(e.target.parentElement.className);
-
-
             if(delIndex===0){
                 addedColors.splice(delIndex, 1);
                 // addedColors.unshift('3');
@@ -114,7 +118,6 @@ class App extends React.Component{
                 // e.target.parentElement.remove();
                 // addedColors.reverse().pop();
                 // addedColors.reverse();
-
             }else{
                 addedColors.splice(delIndex, 1);
             }
@@ -123,7 +126,6 @@ class App extends React.Component{
 
             setTimeout(()=>{
                 this.setState({colorsList:addedColors});
-
             },0);
         }
         const copyStyles=(e)=>{

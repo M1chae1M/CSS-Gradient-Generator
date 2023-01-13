@@ -20,7 +20,8 @@ html,body,#root{width:100vw;height:100vh;position:relative;}
 }
 .AddNewColorOrEdit input:hover,input{box-shadow:var(--box-shadow-x) var(--box-shadow-y) var(--box-shadow-color);
 }
-::-webkit-scrollbar{box-shadow:var(--box-shadow-x) var(--box-shadow-y) var(--box-shadow-color);
+::-webkit-scrollbar{
+    box-shadow:var(--box-shadow-x) var(--box-shadow-y) var(--box-shadow-color);
 }
 #root{
     align-items:center;
