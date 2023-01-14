@@ -85,18 +85,6 @@ class App extends React.Component{
                 // border:'solid 2px var(--borderColor)',
             },
         }
-
-        class changeStateFunctions{
-            // const changeColorsListState=(temp)=>{
-            //         this.setState({colorsList:temp});
-            //     }
-            // constructor(){
-
-            // }
-            changeColorsListState=function(temp) {
-                this.setState({colorsList:temp});
-            }
-        }
         const changeStylesToCopy=()=>{
             let backgroundColorF=Array.from(addedColors).length>0?addedColors[0].color:this.state.inputColorValue;
             let backgroundGradient='';
@@ -107,7 +95,6 @@ class App extends React.Component{
             }
             else{
                 backgroundGradient='';
-                // backgroundGradient=this.state.inputColorValue;
             }
             this.setState({stylesReadyToCopy:'background-color:'+backgroundColorF+';'+backgroundGradient});
         }
@@ -115,58 +102,45 @@ class App extends React.Component{
             this.setState({colorsList:temp});
         }
         const changeColorInput=(e)=>{
-            console.log(e.target.value);
+            // console.log(e.target.value);
             this.setState({inputColorValue:e.target.value});
         }
         const changeNumberInput=(e)=>{
-            console.log(parseInt(e.target.value));
+            // console.log(parseInt(e.target.value));
             this.setState({inputNumberValue:parseInt(e.target.value)});
         }
         const changeRangeInput=(e)=>{
-            console.log(e.target.value);
+            // console.log(e.target.value);
             this.setState({inputRangeValue:e.target.value,showToolTip:true});
         }
         const newToolTipPosition=(e)=>{
             let inputRangeData={
                 left:document.querySelector('#inputRange').getBoundingClientRect().left,
                 width:document.querySelector('#inputRange').getBoundingClientRect().width,
-                // top:document.querySelector('#inputRange').getBoundingClientRect().top,
-                // height:document.querySelector('#inputRange').getBoundingClientRect().height,
             }
             if(e.clientX>inputRangeData.left && e.clientX<(inputRangeData.left+inputRangeData.width)){
-                this.setState({ToolTipTranslateX:((-1)*(inputRangeData.left-e.clientX))})
+                this.setState({ToolTipTranslateX:((-1)*(inputRangeData.left-e.clientX))});
             }
         }
         const addNewColor=(e)=>{
-            console.log('add')
-            console.log(this.state.inputNumberValue)
-            console.log(this.state.inputRangeValue)
-            console.log(this.state.inputColorValue)
-            addedColors.push(new AddedColors(
-                // addedColors.length,
-                this.state.inputColorValue,this.state.inputNumberValue));
+            addedColors.push(new AddedColors(this.state.inputColorValue,this.state.inputNumberValue));
             this.setState({colorsList:addedColors});
-            console.log(addedColors)
         }
         // [...tab.slice(0,3),...tab.slice(4)]
         const delColor=(e)=>{
             let delIndex=parseInt(e.target.parentElement.className);
-
             if(delIndex===0){
                     addedColors.shift();
             }else{
                 addedColors.splice(delIndex, 1);
             }
-
-            console.log(addedColors);
-            // this.setState({colorsList:['addedColors']});
             this.setState({colorsList:addedColors.slice(3,1)});
             setTimeout(()=>{
                 this.setState({colorsList:addedColors});
-            },10);
+            },0);
         }
         const copyStyles=(e)=>{
-            changeStylesToCopy()
+            changeStylesToCopy();
             setTimeout(()=>{
                 document.querySelector('#stylesToCopy').classList.remove('hidden');
                 document.querySelector('#stylesToCopy').select();
@@ -182,81 +156,68 @@ class App extends React.Component{
         }
         return(
             <React.Fragment>
-            <div id='App' style={styles.App}>
-
-    
-                <PreviewScreen
-                    colorsList={this.state.colorsList}
-                    inputRangeValue={this.state.inputRangeValue}
-                    inputColorValue={this.state.inputColorValue}
-                />
-                <input
-                    style={styles.inputRange}
-                    type="range"
-                    id='inputRange'
-                    onChange={changeRangeInput}
-                    onMouseMove={newToolTipPosition}
-                    min="0"
-                    max="360"
-                    step="1"
-                    value={this.state.inputRangeValue}
-                    
-                    // onMouseOver={()=>{this.setState({showToolTip:true})}}
-                    onMouseLeave={()=>{this.setState({showToolTip:false})}}
-                />
-                {
-                    this.state.colorsList.length>0?
-                        <div style={styles.colorListScrollabe} id='colorListScrollabe'>
-                            {
-                                this.state.colorsList.map((x,i)=>
-                                    <AddedColorDisplay
-                                        ID={i}
-                                        key={i}
-                                        color={x.color}
-                                        startOnPercents={x.startOnPercents}
-                                        addedColors={addedColors}
-                                        delColor={delColor}
-                                        changeColorsListState={changeColorsListState}
-                                        // changeColorsListState={changeStateFunctions.changeColorsListState}
-
-                                        changeStateDragged={changeStateDragged}
-                                        changeStateDropped={changeStateDropped}
-                                        dragged={this.state.dragged}
-                                        dropped={this.state.dropped}
-                                    />
-                                )
-                            }
-                        </div>:
-                            null
-                }
-
-                <div style={styles.menu}>
-                    <input type="button" value="Copy styles" onClick={copyStyles} style={styles.copyButton}/>
-                    <Menu
-                        changeColorInput={changeColorInput}
-                        changeNumberInput={changeNumberInput}
-                        addNewColor={addNewColor}
-                        inputColorValue={this.state.inputColorValue}
-                        inputNumberValue={this.state.inputNumberValue}
-                    />
-                </div>
-                <input type="text" value={this.state.stylesReadyToCopy} id='stylesToCopy' className='hidden'/>
-
-
-
-                {
-                this.state.showToolTip===true?
-                    <ToolTip
+                <div id='App' style={styles.App}>
+                    <PreviewScreen
+                        colorsList={this.state.colorsList}
                         inputRangeValue={this.state.inputRangeValue}
-                        ToolTipTranslateX={this.state.ToolTipTranslateX}
-                    />:
-                        null
-            }
+                        inputColorValue={this.state.inputColorValue}
+                    />
+                    <input
+                        style={styles.inputRange}
+                        type="range"
+                        id='inputRange'
+                        onChange={changeRangeInput}
+                        onMouseMove={newToolTipPosition}
+                        min="0"
+                        max="360"
+                        step="1"
+                        value={this.state.inputRangeValue}
+                        onMouseLeave={()=>{this.setState({showToolTip:false})}}
+                    />
+                    {
+                        this.state.colorsList.length>0?
+                            <div style={styles.colorListScrollabe} id='colorListScrollabe'>
+                                {
+                                    this.state.colorsList.map((x,i)=>
+                                        <AddedColorDisplay
+                                            ID={i}
+                                            key={i}
+                                            color={x.color}
+                                            startOnPercents={x.startOnPercents}
+                                            addedColors={addedColors}
+                                            delColor={delColor}
+                                            changeColorsListState={changeColorsListState}
+                                            changeStateDragged={changeStateDragged}
+                                            changeStateDropped={changeStateDropped}
+                                            dragged={this.state.dragged}
+                                            dropped={this.state.dropped}
+                                        />
+                                    )
+                                }
+                            </div>:
+                                null
+                    }
 
-
-
-            </div>
-
+                    <div style={styles.menu}>
+                        <input type="button" value="Copy styles" onClick={copyStyles} style={styles.copyButton}/>
+                        <Menu
+                            changeColorInput={changeColorInput}
+                            changeNumberInput={changeNumberInput}
+                            addNewColor={addNewColor}
+                            inputColorValue={this.state.inputColorValue}
+                            inputNumberValue={this.state.inputNumberValue}
+                        />
+                    </div>
+                    <input type="text" value={this.state.stylesReadyToCopy} id='stylesToCopy' className='hidden'/>
+                    {
+                    this.state.showToolTip===true?
+                        <ToolTip
+                            inputRangeValue={this.state.inputRangeValue}
+                            ToolTipTranslateX={this.state.ToolTipTranslateX}
+                        />:
+                            null
+                    }
+                </div>
             </React.Fragment>
         );
     }

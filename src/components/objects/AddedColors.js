@@ -1,8 +1,5 @@
 class AddedColors{
-    constructor(
-        // ID,
-        color, startOnPercents){
-        // this.ID=ID;
+    constructor(color, startOnPercents){
         this.color=color;
         this.startOnPercents=startOnPercents;
     }

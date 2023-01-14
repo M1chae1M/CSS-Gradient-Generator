@@ -4,8 +4,6 @@ class AddedColorDisplay extends React.Component{
     state={
         inputNumberValue:this.props.startOnPercents,
         inputColorValue:this.props.color,
-        // dragged:0,
-        // dropped:0,
     }
     render(){
         const styles={
@@ -40,9 +38,6 @@ class AddedColorDisplay extends React.Component{
             this.props.addedColors[changePercentsIndex].startOnPercents=e.target.value;
             this.props.changeColorsListState(this.props.addedColors);
         }
-
-
-
         const onDragStartF=(e)=>{
             console.log(this.props.ID);
             this.props.changeStateDragged(this.props.ID)
@@ -67,7 +62,6 @@ class AddedColorDisplay extends React.Component{
 
             },0)
         }
-        
         return(
             <div id='AddedColorDisplay' style={styles.AddedColorDisplay} className={this.props.ID}>
                 <input
@@ -78,7 +72,6 @@ class AddedColorDisplay extends React.Component{
                     onDragStart={onDragStartF}
                     onDragOver={onDragOverF}
                     onDragEnd={onDropF}
-                    // onDrop={onDropF}
                 />
                 <input
                     style={styles.inputs}
