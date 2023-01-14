@@ -1,3 +1,0 @@
-1. dodaj opcję zmiany kolejności kolorów (obecnie się zamieniają miejscami, a spróbuj "wstrzykiwać przed")
-2. input range ma być przyklejony do górnej krawędzi
-3. wystylizuj też bez żadnych kolorów
