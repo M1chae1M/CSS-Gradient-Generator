@@ -1,2 +1,0 @@
-1. drop menu dopracuj
-2. po usunięciu wszystkich kolorów ustaw tło na białe?
