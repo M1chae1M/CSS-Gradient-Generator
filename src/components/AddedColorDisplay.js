@@ -55,7 +55,6 @@ class AddedColorDisplay extends React.Component{
             console.log('dragged: '+this.props.dragged+' dropped: '+this.props.dropped);
             //swap colors first, or between
             let temporary=this.props.addedColors[this.props.dragged]
-            // console.log(temporary)
             this.props.addedColors[this.props.dragged]=this.props.addedColors[this.props.dropped];
             this.props.addedColors[this.props.dropped]=temporary;
 

@@ -1,6 +1,4 @@
-1. dodaj opcję zmiany kolejności kolorów
+1. dodaj opcję zmiany kolejności kolorów (obecnie się zamieniają miejscami, a spróbuj "wstrzykiwać przed")
 2. input range ma być przyklejony do górnej krawędzi
 3. wystylizuj też bez żadnych kolorów
 4. zrób oddzielną klasę na funkcje zmieniające stan, by był pożądek
-5. tooltip wystylizuj
-
