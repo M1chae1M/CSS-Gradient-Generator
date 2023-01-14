@@ -8,9 +8,9 @@ import AddedColorDisplay from './components/AddedColorDisplay';
 import './index.css';
 
 var addedColors=[
-    // new AddedColors("#ffcfaa", 10),
-    // new AddedColors("#afffbb", 30),
-    // new AddedColors("#fbffcc", 60),
+    new AddedColors("#ffcfaa", 10),
+    new AddedColors("#afffbb", 30),
+    new AddedColors("#fbffcc", 60),
     // new AddedColors("#afcadd", 80),
     // new AddedColors("#aaffee", 90),
 ];
@@ -121,7 +121,7 @@ class App extends React.Component{
         }
         const addNewColor=(e)=>{
             addedColors.push(new AddedColors(this.state.inputColorValue,this.state.inputNumberValue));
-            this.setState({colorsList:addedColors});
+            this.setState({colorsList:addedColors,inputNumberValue:this.state.inputNumberValue+10});
         }
         const copyStyles=(e)=>{
             changeStylesToCopy();
@@ -174,7 +174,6 @@ class App extends React.Component{
                             </div>:
                                 null
                     }
-
                     <div style={styles.controlPanel}>
                         <input type="button" value="Copy styles" onClick={copyStyles} style={styles.copyButton}/>
                         <Menu
@@ -186,7 +185,6 @@ class App extends React.Component{
                         />
                     </div>
                     <input type="text" value={this.state.stylesReadyToCopy} id='stylesToCopy' className='hidden'/>
-  
                 </div>
                 {
                     this.state.showToolTip===true?
