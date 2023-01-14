@@ -13,7 +13,7 @@ class ToolTip extends React.Component{
                 borderRadius:'5px',
                 border:'solid 3px var(--borderColor)',
                 zIndex:1410,
-                top:document.querySelector('#inputRange').getBoundingClientRect().top-30,
+                top:document.querySelector('#inputRange').getBoundingClientRect().top+30,
                 transform:'translateX('+(this.props.ToolTipTranslateX-20)+'px)',
             },
         }

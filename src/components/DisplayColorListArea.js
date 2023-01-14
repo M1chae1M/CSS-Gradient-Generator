@@ -11,7 +11,6 @@ class DisplayColorListArea extends React.Component{
         return(
             <div id='DisplayColorListArea' style={styles.DisplayColorListArea}>
                     {
-                        // this.state.colorLenght>0?
                         this.props.colorsList.map((x,i)=>
                             <AddedColorDisplay
                                 ID={i}
@@ -22,7 +21,6 @@ class DisplayColorListArea extends React.Component{
                                 changeColorsListState={this.props.changeColorsListState}
                             />
                         )
-                        // :null
                     }
             </div>
         );
