@@ -6,9 +6,6 @@ class Menu extends React.Component{
             Menu:{
                 display:'grid',
                 gridTemplateColumns:'20% 20% 10% 50%',
-                // gridTemplateColumns:'1fr 1fr 0.5fr 2.5fr',
-                // border:'solid yellow 1px',
-                // gridGap:'-2px',
             },
             inputs:{
                 boxShadow:'var(--borderColor) var(--box-shadow-x) var(--box-shadow-y)',
@@ -16,7 +13,6 @@ class Menu extends React.Component{
                 width:'auto',
                 border:'var(--box-shadow-color) 3px solid',
                 height:'100%',
-                // boxShadow:'var(--box-shadow-color) var(--box-shadow-x) var(--box-shadow-y)',
             },
         }
         return(

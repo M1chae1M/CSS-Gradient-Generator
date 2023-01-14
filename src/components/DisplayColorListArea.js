@@ -5,7 +5,6 @@ class DisplayColorListArea extends React.Component{
     render(){
         const styles={
             DisplayColorListArea:{
-
             },
         }
         return(

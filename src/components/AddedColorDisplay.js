@@ -16,14 +16,11 @@ class AddedColorDisplay extends React.Component{
                 gridTemplateColumns:'10% 20% 40% 10%',
                 alignItems:'center',
                 justifyContent:'center',
-                // justifyItems:'center',
-                // padding:'3px',
-                // verticalAlign:'middle',
-                // boxShadow:'var(--borderColor) 2px 2px',
             },
             inputs:{
                 height:'25px',
                 width:'auto',
+                cursor:'move',
             },
         }
         const changeColorInput=(e)=>{
@@ -50,12 +47,7 @@ class AddedColorDisplay extends React.Component{
             let temporary=this.props.addedColors[this.props.dragged].color
             this.props.addedColors[this.props.dragged].color=this.props.addedColors[this.props.dropped].color;
             this.props.addedColors[this.props.dropped].color=temporary;
-            // let temporary=this.props.addedColors[this.props.dragged]
-            // this.props.addedColors[this.props.dragged]=this.props.addedColors[this.props.dropped];
-            // this.props.addedColors[this.props.dropped]=temporary;
-
             this.props.changeColorsListState(this.props.addedColors.slice(3,1));
-
             setTimeout(()=>{
                 this.props.changeColorsListState(this.props.addedColors);
             },0);

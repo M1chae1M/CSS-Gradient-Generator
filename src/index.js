@@ -8,9 +8,9 @@ import AddedColorDisplay from './components/AddedColorDisplay';
 import './index.css';
 
 var addedColors=[
-    new AddedColors("#ffcfaa", 10),
-    new AddedColors("#afffbb", 30),
-    new AddedColors("#fbffcc", 60),
+    // new AddedColors("#ffcfaa", 10),
+    // new AddedColors("#afffbb", 30),
+    // new AddedColors("#fbffcc", 60),
     // new AddedColors("#afcadd", 80),
     // new AddedColors("#aaffee", 90),
 ];
@@ -79,16 +79,12 @@ class App extends React.Component{
             this.setState({colorsList:temp});
         }
         const changeColorInput=(e)=>{
-            // console.log(e.target.value);
             this.setState({inputColorValue:e.target.value});
         }
         const changeNumberInput=(e)=>{
-            // console.log(parseInt(e.target.value));
             this.setState({inputNumberValue:parseInt(e.target.value)});
         }
         const changeRangeInput=(e)=>{
-            // console.log(e.target.value);
-            // console.log(e.clientX)
             this.setState({inputRangeValue:e.target.value,showToolTip:true});
         }
         const changeStateDragged=(target)=>{
