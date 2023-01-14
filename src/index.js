@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Menu from './components/Menu';
+import ToolTip from './components/ToolTip';
 import PreviewScreen from './components/PreviewScreen';
 import AddedColors from './components/objects/AddedColors';
 import AddedColorDisplay from './components/AddedColorDisplay';
@@ -25,6 +26,9 @@ class App extends React.Component{
 
         dragged:0,
         dropped:0,
+
+        showToolTip:false,
+        ToolTipTranslateX:0,
     }
     render(){
         const styles={
@@ -34,6 +38,7 @@ class App extends React.Component{
                 backgroundColor:'var(--background-color)',
                 height:'80vh',
                 justifyItems:'center',
+                position:'relative',
                 // border:'solid 2px var(--borderColor)',
                 // border:'solid black 1px',
                 // width:'55vh',
@@ -46,6 +51,7 @@ class App extends React.Component{
                 boxShadow:'var(--borderColor) var(--box-shadow-x) var(--box-shadow-y)',
                 borderRadius:'5px',
                 paddingLeft:'5px',
+                // height:'fit-content',
                 // overflow:'hidden',
                 // border:'solid black 1px',
             },
@@ -105,8 +111,23 @@ class App extends React.Component{
             this.setState({inputNumberValue:parseInt(e.target.value)});
         }
         const changeRangeInput=(e)=>{
-            console.log(e.target.value);
+            // console.log(e.target.value);
+
+            // console.log(e.clientY)
+
             this.setState({inputRangeValue:e.target.value});
+        }
+        const newToolTipPosition=(e)=>{
+            // console.log(e.clientX)
+            let inputRangeData={
+                left:document.querySelector('#inputRange').getBoundingClientRect().left,
+                width:document.querySelector('#inputRange').getBoundingClientRect().width,
+            }
+            // console.log(e.clientY)
+            console.log(document.querySelector('#inputRange').getBoundingClientRect().left)
+            console.log('e.clientX: '+e.clientX)
+            this.setState({ToolTipTranslateX:((-1)*(document.querySelector('#inputRange').getBoundingClientRect().left-e.clientX))})
+            // console.log(inputRangeData.width)
         }
         const addNewColor=(e)=>{
             console.log('add')
@@ -130,8 +151,8 @@ class App extends React.Component{
             }
 
             console.log(addedColors);
-            console.log(this)
-            this.setState({colorsList:['addedColors']});
+            // this.setState({colorsList:['addedColors']});
+            this.setState({colorsList:addedColors.slice(3,1)});
             setTimeout(()=>{
                 this.setState({colorsList:addedColors});
             },10);
@@ -154,6 +175,10 @@ class App extends React.Component{
         const changeStateDropped=(target)=>{
             this.setState({dropped:target});
         }
+
+
+
+
         return(
             <React.Fragment>
             <div id='App' style={styles.App}>
@@ -164,8 +189,22 @@ class App extends React.Component{
                     inputRangeValue={this.state.inputRangeValue}
                     inputColorValue={this.state.inputColorValue}
                 />
-                <input style={styles.inputRange} type="range" onChange={changeRangeInput} min="0" max="360" step="1" value={this.state.inputRangeValue}/>
-                <div style={styles.colorListScrollabe} id='colorListScrollabe'>
+                <input
+                    style={styles.inputRange}
+                    type="range"
+                    id='inputRange'
+                    onChange={changeRangeInput}
+                    onMouseMove={newToolTipPosition}
+                    min="0"
+                    max="360"
+                    step="1"
+                    value={this.state.inputRangeValue}
+                    onMouseOver={()=>{this.setState({showToolTip:true})}}
+                    onMouseLeave={()=>{this.setState({showToolTip:false})}}
+                />
+                {
+                    this.state.colorsList.length>0?
+                    <div style={styles.colorListScrollabe} id='colorListScrollabe'>
                     {
                         this.state.colorsList.map((x,i)=>
                             <AddedColorDisplay
@@ -183,7 +222,10 @@ class App extends React.Component{
                             />
                         )
                     }
-                </div>
+                </div>:
+                null
+                }
+
                 <div style={styles.menu}>
                     <input type="button" value="Copy styles" onClick={copyStyles} style={styles.copyButton}/>
                     <Menu
@@ -195,7 +237,22 @@ class App extends React.Component{
                     />
                 </div>
                 <input type="text" value={this.state.stylesReadyToCopy} id='stylesToCopy' className='hidden'/>
+
+
+
+                {
+                // this.state.showToolTip===true?
+                    <ToolTip
+                        inputRangeValue={this.state.inputRangeValue}
+                        ToolTipTranslateX={this.state.ToolTipTranslateX}
+                    />
+                    // :null
+            }
+
+
+
             </div>
+
             </React.Fragment>
         );
     }

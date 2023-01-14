@@ -52,7 +52,21 @@ class AddedColorDisplay extends React.Component{
             this.props.changeStateDropped(this.props.ID)
         }
         const onDropF=(e)=>{
-            console.log('dragged: '+this.props.dragged+' dropped: '+this.props.dropped)
+            console.log('dragged: '+this.props.dragged+' dropped: '+this.props.dropped);
+            //swap colors first, or between
+            let temporary=this.props.addedColors[this.props.dragged]
+            // console.log(temporary)
+            this.props.addedColors[this.props.dragged]=this.props.addedColors[this.props.dropped];
+            this.props.addedColors[this.props.dropped]=temporary;
+
+            console.log(this.props.addedColors);
+
+            this.props.changeColorsListState(this.props.addedColors.slice(3,1));
+
+            setTimeout(()=>{
+                this.props.changeColorsListState(this.props.addedColors);
+
+            },0)
         }
         
         return(
