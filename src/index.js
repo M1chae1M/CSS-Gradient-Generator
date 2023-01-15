@@ -104,7 +104,6 @@ class App extends React.Component{
             else{
                 backgroundGradient='';
             }
-            //background:
             this.setState({stylesReadyToCopy:'background-color:'+backgroundColorF+';'+backgroundGradient});
         }
         const newToolTipPosition=(e)=>{
