@@ -97,14 +97,15 @@ class App extends React.Component{
             let backgroundColorF=Array.from(addedColors).length>0?addedColors[0].color:this.state.inputColorValue;
             let backgroundGradient='';
             if(Array.from(this.state.colorsList).length>1){
-                backgroundGradient='linear-gradient('+this.state.inputRangeValue+'deg';
+                backgroundGradient='background:linear-gradient('+this.state.inputRangeValue+'deg';
                 this.state.colorsList.map((x,i)=>backgroundGradient+=','+x.color+' '+x.startOnPercents+'%');
                 backgroundGradient+=');';
             }
             else{
                 backgroundGradient='';
             }
-            this.setState({stylesReadyToCopy:'background-color:'+backgroundColorF+';background:'+backgroundGradient});
+            //background:
+            this.setState({stylesReadyToCopy:'background-color:'+backgroundColorF+';'+backgroundGradient});
         }
         const newToolTipPosition=(e)=>{
             let inputRangeData={
